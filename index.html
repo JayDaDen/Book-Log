@@ -13,12 +13,12 @@
     <div class="container">
         <h1 class="text-center my-4">Book List</h1>
         
-        <!-- Search Bar -->
+        
         <div class="mb-3">
             <input type="text" id="search" class="form-control" placeholder="Search by title or author" oninput="searchBooks()">
         </div>
 
-        <!-- Sort Dropdown -->
+    
         <div class="mb-3">
             <select class="form-select" onchange="sortBooks(this.value)">
                 <option value="title">Sort by Title</option>
@@ -27,7 +27,7 @@
             </select>
         </div>
 
-        <!-- Add Book Form -->
+    
         <div class="mb-3">
             <label for="bookTitle" class="form-label">Book Title</label>
             <input type="text" class="form-control" id="bookTitle">
@@ -44,7 +44,7 @@
 
         <h3 class="my-4">Your Books</h3>
         <ul id="bookList" class="list-group">
-            <!-- Books will be displayed here -->
+
         </ul>
     </div>
     <!-- Bootstrap JS -->
