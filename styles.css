@@ -1,29 +1,104 @@
-
+html {
+    scroll-behavior: smooth;
+  }
+  
 body {
-    background-color: #f8f9fa;
+    background: linear-gradient(90deg, hsl(41, 70%, 54%), #f6ff00);
+    color: navy;
+    font-family: 'Roboto', sans-serif;
 }
 
-.container {
+h1{
+    text-align: center;
+    font-weight: bolder;    
+}
+
+h2{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#logCheck{
+    text-decoration: none ;
+    display: inline-block;
+}
+
+input {
+    height: 40px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+ 
+  }
+  
+  input:hover {
+    height: 45px;
+    transition: width 0.3s ease, height 0.3s ease; 
+
+  }
+
+#searchInput{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#option{
+    font-style: italic;
+}
+#bookListSection{
+    padding-bottom: 15px;
+}
+
+.navbar {
+    display: inline;
+    margin-bottom: 20px;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+  #yourLog{
+   padding-top: 100px; 
+  }
+
+#bookListSection, #logSection {
     margin-top: 20px;
 }
 
-
-.list-group-item {
-    margin-bottom: 10px;
-    padding: 15px;
+.book-card {
+    margin-bottom: 15px;
+    background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
 }
 
-h5 {
-    color: #343a40;
+.book-card img {
+    margin-right: 15px;
+}
+.celebration {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    background-color: #28a745; 
+    color: #fff; 
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1000; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    animation: fadeInOut 5s ease-in-out; 
 }
 
-button {
-    margin-right: 5px;
-}
-
-#search {
-    width: 100%;
-    margin-bottom: 20px;
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-100%); } 
+    10% { opacity: 1; transform: translateY(0); } 
+    90% { opacity: 1; transform: translateY(0); } 
+    100% { opacity: 0; transform: translateY(-100%); } 
 }
