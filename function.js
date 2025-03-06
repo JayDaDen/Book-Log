@@ -12,9 +12,9 @@ function searchGoogleBooks() {
                 title: item.volumeInfo.title || "Unknown Title",
                 genre: item.volumeInfo.categories ? item.volumeInfo.categories.join(', ') : "Unknown Genre",
                 image: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150',
-                status: '', // No default status
+                status: '',
                 rating: item.volumeInfo.averageRating || 'Not Rated',
-                addedToLog: readingLog.some(b => b.title === item.volumeInfo.title) // Check if already in log
+                addedToLog: readingLog.some(b => b.title === item.volumeInfo.title)
             }));
 
             renderBooks();
@@ -37,7 +37,6 @@ function renderBooks() {
                         <strong>${book.title}</strong><br>
                         <small>${book.genre}</small><br>
 
-                        <!-- Status Dropdown -->
                         <select class="form-select form-select-sm mt-2" onchange="updateBookStatus(this, ${index})">
                             <option value="">Select Status</option>
                             <option value="to-read">To Read</option>
@@ -74,14 +73,12 @@ function addToLog(index) {
         readingLog.push(book);
     }
 
-    // Change button to "Book Added" and disable it
     const addButton = document.getElementById(`addToLogBtn-${index}`);
     addButton.textContent = "Book Added";
     addButton.classList.remove("btn-success");
     addButton.classList.add("btn-secondary");
     addButton.disabled = true;
 
-    // Render the log to update the UI
     renderLog();
 }
 
@@ -107,7 +104,6 @@ function renderLog() {
                             <strong>${book.title}</strong><br>
                             <small>${book.genre}</small><br>
 
-                            <!-- Status Dropdown -->
                             <select class="form-select form-select-sm mt-2" onchange="updateLogBookStatus(this, ${index})">
                                 <option value="to-read" ${book.status === "to-read" ? "selected" : ""}>To Read</option>
                                 <option value="reading" ${book.status === "reading" ? "selected" : ""}>In the Middle of Reading</option>
@@ -126,45 +122,17 @@ function renderLog() {
     }
 }
 
-function updateLogBookStatus(selectElement, index) {
-    const selectedStatus = selectElement.value;
-
-    if (selectedStatus === "completed") {
-        showCelebration();
-    }
-
-    readingLog[index].status = selectedStatus;
-}
-
-function confirmDelete(index) {
-    const confirmDelete = confirm("Are you sure you want to delete this book from the log?");
-    if (confirmDelete) {
-        readingLog.splice(index, 1);
-        renderLog();
-    }
-}
-
-function rateBook(index) {
-    const rating = prompt("Please provide a rating for this book (1-5):");
-    if (rating >= 1 && rating <= 5) {
-        readingLog[index].rating = rating;
-        document.getElementById(`bookRating-${index}`).textContent = rating;
-    } else {
-        alert("Please enter a valid rating between 1 and 5.");
-    }
-}
-
 function showCelebration() {
     const celebrationDiv = document.getElementById('celebrationMessage');
     celebrationDiv.style.display = 'block';
 
-    // Hide the celebration message after 5 seconds
     setTimeout(() => {
         celebrationDiv.style.display = 'none';
-    }, 5000); // 5000 milliseconds = 5 seconds
+    }, 5000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     renderBooks();
     renderLog();
 });
+
