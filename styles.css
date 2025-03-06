@@ -20,14 +20,21 @@ h2{
 }
 
 #logCheck{
-    text-decoration: none ;
-    display: inline-block;
+    text-decoration: none;
+    display: block;
+    width: fit-content; 
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: navy;
+    text-decoration: underline;
 }
 
 input {
     height: 40px;
     border: 2px solid #ccc;
     border-radius: 5px;
+    padding-bottom: 5px;
  
   }
   
@@ -61,8 +68,15 @@ input {
     padding: 5px 10px;
 }
 
-  #yourLog{
-   padding-top: 100px; 
+#yourLog{
+    font-weight: bold;
+}
+
+  #yourLog, #logMessage{
+   padding-top: 25px; 
+   padding-bottom: 0;
+   text-align: center;
+   
   }
 
 #bookListSection, #logSection {
